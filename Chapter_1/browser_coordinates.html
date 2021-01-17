@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browser Coordinates</title>
+  <style>
+    body { 
+      margin: 0;
+      background-color: black;
+    }
+    div {
+      background-color: #e4e3a3;
+      margin: 0;
+      height: 50px;
+      width: 50px;
+      margin: 2px 0 2px 0;
+      border-radius: 1px;;
+    }
+    .special {
+      background-color: rosybrown;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div class="special"></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <script>
+    const special = document.querySelector('.special');
+
+    document.addEventListener('click', event => {
+        console.log(
+          special.getBoundingClientRect()
+        );
+        console.log(
+          `
+            PageX: ${event.pageX}, Page Y: ${event.pageY};
+            Client X: ${event.clientX}, Client Y: ${event.clientY};
+          `
+        )
+    })
+  </script>
+</body>
+</html>
