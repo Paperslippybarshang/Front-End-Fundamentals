@@ -38,11 +38,8 @@
     const special = document.querySelector('.special');
 
     document.addEventListener('click', event => {
-        console.log(
-          special.getBoundingClientRect()
-        );
-        console.log(
-          `
+        console.log(special.getBoundingClientRect());
+        console.log(`
             PageX: ${event.pageX}, Page Y: ${event.pageY};
             Client X: ${event.clientX}, Client Y: ${event.clientY};
           `
