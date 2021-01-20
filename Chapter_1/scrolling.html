@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browser Coordinates</title>
+  <style>
+    body { 
+      margin: 0;
+      background-color: black;
+    }
+    div {
+      background-color: #e4e3a3;
+      margin: 0;
+      height: 250px;
+      width: 250px;
+      margin: 2px 0 2px 0;
+      border-radius: 1px;;
+    }
+    .special {
+      background-color: rosybrown;
+    }
+    
+    .button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+    }
+   
+  </style>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div class="special"></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <!-- This could have been called <aside> -->
+  <aside class="button"> 
+    <button class="scroll_1">Scroll by 100px(y)</button>
+    <button class="scroll_2">Scroll to 100px(y)</button>
+    <button class="scroll_3">Scroll into special</button>
+  </aside>
+ 
+  <script>
+    const special = document.querySelector('.special');
+    const scrollBy100 = document.querySelector('.scroll_1');
+    const scrollTo100 = document.querySelector('.scroll_2');
+    const scrollSpecial = document.querySelector('.scroll_3');
+
+    special.addEventListener('click', event => {
+        console.log(special.getBoundingClientRect());
+        console.log(`
+            PageX: ${event.pageX}, Page Y: ${event.pageY};
+            Client X: ${event.clientX}, Client Y: ${event.clientY};
+          `
+        )
+    })
+
+    
+    const specialCoordinate = event => {
+      const specialBox = special.getBoundingClientRect();
+      const coordinates = specialBox.y;
+      return coordinates;
+    }
+    
+
+    scrollBy100.addEventListener('click', event => {
+      // window.scrollBy(0, 100);
+      // You can also pass in object
+      window.scrollBy({ top: 100, left: 0, behavior:'smooth' });
+    })
+
+    scrollTo100.addEventListener('click', event => {
+      window.scrollTo(0, 100);
+    })
+
+    scrollSpecial.addEventListener('click', event => {
+      // window.scrollTo(0, specialCoordinate());
+      special.scrollIntoView();
+    })
+
+  </script>
+</body>
+</html>
