@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  background-color: black;
+}
+
+img {
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin: 2px 0 2px 0;
+  width: 120px;
+}
+
+.btn-find {
+  background-color: #fc4848;
+  color: white;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin: 4px 0 4px 0;
+  font-size: 18px;
+  border: 2px;
+  cursor: pointer;
+}
+
+.btn-find::after {
+  content: "\01F407";
+}
